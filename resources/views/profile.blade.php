@@ -8,7 +8,11 @@
                     <h3>Profil</h3>
                 </div>
                 <div class="card-body profile-show">
+                    @if(Auth::user()->photo==null)
                     <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="" width="100">
+                    @else
+                    <img src="{{ asset('assets/profile') }}/{{ Auth::user()->photo }}" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="" width="100">
+                    @endif
                     <div class="row">
                         <div class="col-4">
                             <p>Nama</p>
@@ -47,7 +51,7 @@
                     </div>
                     <a href="#" class="btn btn-success btn-edit-profile">Edit</a>
                 </div>
-                <form action="{{ route('profile.update') }}" method="post">
+                <form action="{{ route('profile.update') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body profile-edit">
                         @if(session('errors'))
@@ -63,6 +67,15 @@
                                 </ul>
                             </div>
                         @endif
+                        <div class="form-group">
+                            <label for=""><strong>Foto</strong></label>
+                            <input type="file" accept="image/*" name="photo" class="form-control">
+                            @if(Auth::user()->photo==null)
+                            <img width="200px" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png">
+                            @else
+                            <img width="200px" src="{{ asset('assets/profile') }}/{{ Auth::user()->photo }}">
+                            @endif
+                        </div>
                         <div class="form-group">
                             <label for=""><strong>Nama Lengkap</strong></label>
                             <input type="text" name="name" class="form-control" placeholder="Nama Lengkap" value="{{ Auth::user()->name }}" required>

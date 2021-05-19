@@ -6,7 +6,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-            <li class="nav-item {{ areActiveRoutes(['home'])}}">
+            <li class="nav-item {{ areActiveRoutes(['home', 'informasi'])}}">
                 <a class="nav-link" href="{{route('home')}}">Dashboard</a>
             </li>
             <li class="nav-item {{ areActiveRoutes(['profile'])}}">

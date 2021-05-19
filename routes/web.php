@@ -20,12 +20,11 @@ use App\Http\Controllers\ProfileController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('login', [AuthController::class, 'showFormLogin'])->name('login');
 Route::post('login', [AuthController::class, 'login']);
-Route::get('register', [AuthController::class, 'showFormRegister'])->name('register');
-Route::post('register', [AuthController::class, 'register']);
  
 Route::group(['middleware' => 'auth'], function () {
  
     Route::get('profile', [ProfileController::class, 'index'])->name('profile');
+    Route::get('informasi/{id}', [HomeController::class, 'informasi'])->name('informasi');
     Route::post('profile/update', [ProfileController::class, 'update'])->name('profile.update');
     Route::get('member', [HomeController::class, 'member'])->name('member');
     Route::get('contact', [HomeController::class, 'contact'])->name('contact');

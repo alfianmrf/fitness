@@ -43,6 +43,7 @@ class AuthController extends Controller
         $data = [
             'id_member' => $request->input('id_member'),
             'password'  => $request->input('password'),
+            'role'      => 'user'
         ];
   
         Auth::attempt($data);
@@ -92,6 +93,7 @@ class AuthController extends Controller
         }
   
         $user = new User;
+        $user->role = 'user';
         $user->name = ucwords(strtolower($request->name));
         $user->id_member = strtolower($request->id_member);
         $user->address = $request->address;
@@ -100,8 +102,8 @@ class AuthController extends Controller
         $simpan = $user->save();
   
         if($simpan){
-            Session::flash('success', 'Register berhasil! Silahkan login untuk mengakses data');
-            return redirect()->route('login');
+            Session::flash('success', 'Berhasil menambahkan member!');
+            return redirect()->route('admin');
         } else {
             Session::flash('errors', ['' => 'Register gagal! Silahkan ulangi beberapa saat lagi']);
             return redirect()->route('register');
@@ -112,5 +114,60 @@ class AuthController extends Controller
     {
         Auth::logout(); // menghapus session yang aktif
         return redirect()->route('login');
+    }
+
+    public function showFormLoginAdmin()
+    {
+        if (Auth::check()) { // true sekalian session field di users nanti bisa dipanggil via Auth
+            //Login Success
+            return redirect()->route('admin');
+        }
+        return view('admin.login');
+    }
+  
+    public function loginAdmin(Request $request)
+    {
+        $rules = [
+            'id_member'             => 'required',
+            'password'              => 'required|string'
+        ];
+  
+        $messages = [
+            'id_member.required'    => 'Username wajib diisi',
+            'password.required'     => 'Password wajib diisi',
+            'password.string'       => 'Password harus berupa string'
+        ];
+  
+        $validator = Validator::make($request->all(), $rules, $messages);
+  
+        if($validator->fails()){
+            return redirect()->back()->withErrors($validator)->withInput($request->all);
+        }
+  
+        $data = [
+            'id_member' => $request->input('id_member'),
+            'password'  => $request->input('password'),
+            'role'      => 'admin'
+        ];
+  
+        Auth::attempt($data);
+  
+        if (Auth::check()) { // true sekalian session field di users nanti bisa dipanggil via Auth
+            //Login Success
+            return redirect()->route('admin');
+  
+        } else { // false
+  
+            //Login Fail
+            Session::flash('error', 'Username atau password salah');
+            return redirect()->route('admin.login');
+        }
+  
+    }
+
+    public function logoutAdmin()
+    {
+        Auth::logout(); // menghapus session yang aktif
+        return redirect()->route('admin.login');
     }
 }

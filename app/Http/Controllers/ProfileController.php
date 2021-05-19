@@ -23,6 +23,14 @@ class ProfileController extends Controller
         $user->address = $request->address;
         $user->job = $request->job;
         $user->gender = $request->gender;
+        if ($photo = $request->file('photo')) {
+            $destinationPath = 'assets/profile/';
+            $profileImage = date('YmdHis') . "." . $photo->getClientOriginalExtension();
+            $photo->move($destinationPath, $profileImage);
+            $user->photo = "$profileImage";
+        }else{
+            unset($user->photo);
+        }
 
         if ($user->save()) {
             Session::flash('success', 'Profil berhasil diperbarui!');
