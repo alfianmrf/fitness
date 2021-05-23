@@ -3,7 +3,7 @@
 @section('title', 'Member')
 
 @section('content_header')
-    <h1>Tambah Jadwal</h1>
+    <h1>Edit Jadwal</h1>
 @stop
 
 @section('content')

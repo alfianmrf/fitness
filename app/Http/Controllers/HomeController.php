@@ -39,10 +39,27 @@ class HomeController extends Controller
         return view('member');
     }
 
+    public function notifikasi()
+    {
+        $user = Auth::user();
+        $notification = DB::table('transaction')->where('id_member', $user->id_member)->get();
+        return view('notifikasi', compact(['notification']));
+    }
+
     public function contact()
     {
         $contact = DB::table('contact')->where('type', 'wa')->first();
         return view('contact', compact(['contact']));
+    }
+
+    public function pembayaran()
+    {
+        $user = Auth::user();
+        $payment = DB::table('transaction')->where([
+            ['id_member', $user->id_member],
+            ['verification', 0],
+        ])->get();
+        return view('pembayaran', compact(['payment']));
     }
 
     public function admin()

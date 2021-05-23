@@ -245,11 +245,13 @@ return [
         [
             'text'  => 'Data Transaksi',
             'url'   => 'admin/transaksi',
+            'active'=> ['admin/transaksi*'],
             'icon'  => 'fas fa-fw fa-exchange-alt',
         ],
         [
             'text'  => 'Notifikasi',
             'url'   => 'admin/notifikasi',
+            'active'=> ['admin/notifikasi*'],
             'icon'  => 'fas fa-fw fa-bell',
         ],
         [

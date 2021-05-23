@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TransaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('profile', [ProfileController::class, 'index'])->name('profile');
     Route::get('informasi/{id}', [HomeController::class, 'informasi'])->name('informasi');
     Route::post('profile/update', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('pembayaran', [HomeController::class, 'pembayaran'])->name('pembayaran');
+    Route::post('pembayaran/{id}/upload', [TransaksiController::class, 'pembayaranUpload'])->name('pembayaran.upload');
     Route::get('member', [HomeController::class, 'member'])->name('member');
+    Route::get('notifikasi', [HomeController::class, 'notifikasi'])->name('notifikasi');
     Route::get('contact', [HomeController::class, 'contact'])->name('contact');
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
  

@@ -12,8 +12,14 @@
             <li class="nav-item {{ areActiveRoutes(['profile'])}}">
                 <a class="nav-link" href="{{route('profile')}}">Profil</a>
             </li>
+            <li class="nav-item {{ areActiveRoutes(['pembayaran'])}}">
+                <a class="nav-link" href="{{route('pembayaran')}}">Pembayaran</a>
+            </li>
             <li class="nav-item {{ areActiveRoutes(['member'])}}">
                 <a class="nav-link" href="{{route('member')}}">Kartu Member</a>
+            </li>
+            <li class="nav-item {{ areActiveRoutes(['notifikasi'])}}">
+                <a class="nav-link" href="{{route('notifikasi')}}">Notifikasi</a>
             </li>
             <li class="nav-item {{ areActiveRoutes(['contact'])}}">
                 <a class="nav-link" href="{{route('contact')}}">Contact Us</a>

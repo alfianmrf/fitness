@@ -8,6 +8,7 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\InformasiController;
+use App\Http\Controllers\TransaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,19 @@ Route::middleware(['admin'])->group(function () {
             Route::post('/new', [InformasiController::class, 'new'])->name('admin.informasi.new');
             Route::get('/{id}/delete', [InformasiController::class, 'delete'])->name('admin.informasi.delete');
             Route::get('/{id}/edit', [InformasiController::class, 'edit'])->name('admin.informasi.edit');
+        });
+        Route::group(["prefix" => "/transaksi"], function () {
+            Route::get('/', [TransaksiController::class, 'index'])->name('admin.transaksi');
+            Route::get('/add', [TransaksiController::class, 'add'])->name('admin.transaksi.add');
+            Route::post('/update/{id}', [TransaksiController::class, 'update'])->name('admin.transaksi.update');
+            Route::post('/new', [TransaksiController::class, 'new'])->name('admin.transaksi.new');
+            Route::get('/{id}/delete', [TransaksiController::class, 'delete'])->name('admin.transaksi.delete');
+            Route::get('/{id}/edit', [TransaksiController::class, 'edit'])->name('admin.transaksi.edit');
+            Route::post('/store', [TransaksiController::class, 'store'])->name('admin.store');
+        });
+        Route::group(["prefix" => "/notifikasi"], function () {
+            Route::get('/', [TransaksiController::class, 'notifikasi'])->name('admin.notifikasi');
+            Route::post('verifikasi/{id}', [TransaksiController::class, 'verifikasi'])->name('admin.notifikasi.verifikasi');
         });
     });
 });
