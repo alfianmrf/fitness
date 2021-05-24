@@ -36,7 +36,8 @@ class HomeController extends Controller
 
     public function member()
     {
-        return view('member');
+        $information = DB::table('information')->where('id', $id)->first();
+        return view('informasi', compact(['information']));
     }
 
     public function notifikasi()
@@ -48,8 +49,8 @@ class HomeController extends Controller
 
     public function contact()
     {
-        $contact = DB::table('contact')->where('type', 'wa')->first();
-        return view('contact', compact(['contact']));
+        $contacts = DB::table('contact')->get();
+        return view('contact', compact(['contacts']));
     }
 
     public function pembayaran()
@@ -62,11 +63,17 @@ class HomeController extends Controller
         return view('pembayaran', compact(['payment']));
     }
 
-    public function admin()
+    public function admin(Request $request)
     {
         if(Auth::check()){
             $role = Auth::user()->role;
-            $user = DB::table('users')->where('role', 'user')->get();
+            $user = DB::table('users')->when($request->keyword, function ($query) use ($request) {
+                $query
+                ->where('name', 'like', "%{$request->keyword}%")
+                ->orWhere('id_member', 'like', "%{$request->keyword}%")
+                ->orWhere('address', 'like', "%{$request->keyword}%");
+            })->where('role', 'user')->get();
+
             if($role == "admin"){
                 return view('admin.home', compact(['user']));
             } else if($role == "user"){

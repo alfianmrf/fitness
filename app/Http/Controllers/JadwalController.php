@@ -29,6 +29,8 @@ class JadwalController extends Controller
         $data = [
             'day' => $request->day,
             'time' => $request->time,
+            'end' => $request->end,
+            'close' => $request->close,
         ];
 
         if (DB::table('schedule')->where('id', $id)->update($data)) {
@@ -44,6 +46,8 @@ class JadwalController extends Controller
         $data = [
             'day' => $request->day,
             'time' => $request->time,
+            'end' => $request->end,
+            'close' => $request->close,
         ];
 
         if (DB::table('schedule')->insert($data)) {

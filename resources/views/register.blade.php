@@ -29,8 +29,8 @@
                 <input type="text" name="name" class="form-control" placeholder="Nama Lengkap">
             </div>
             <div class="form-group">
-                <label for=""><strong>ID Member</strong></label>
-                <input type="text" name="id_member" class="form-control" placeholder="ID Member">
+                <label for=""><strong>Username</strong></label>
+                <input type="text" name="id_member" class="form-control" placeholder="Username">
             </div>
             <div class="form-group">
                 <label for=""><strong>Alamat</strong></label>

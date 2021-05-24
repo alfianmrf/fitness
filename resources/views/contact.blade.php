@@ -9,7 +9,12 @@
                 </div>
                 <div class="card-body">
                     <p>Untuk informasi lebih lengkap silahkan menghubungi kami.</p>
-                    <a name="" id="" class="btn btn-success" href="https://api.whatsapp.com/send?phone=62{{ $contact->content }}&text=Halo%20mau%20order%20gan" role="button"><i class="fab fa-whatsapp"></i> Whatsapp</a>
+                    @foreach($contacts as $key => $contact)
+                    <div class="row">
+                        <div class="col-4"><p><img src="{{ asset('assets/contact') }}/{{ $contact->logo }}" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="" style="height: 24px;"> {{ $contact->name }}</p></div>
+                        <div class="col-6"><p>: {{ $contact->content }}</p></div>
+                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

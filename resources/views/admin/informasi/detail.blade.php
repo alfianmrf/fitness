@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Member')
+@section('title', 'Informasi')
 
 @section('content_header')
     <h1>Informasi</h1>
@@ -22,6 +22,9 @@
       <th scope="row">{{ $key+1 }}</th>
       <td>{{ $info->name }}</td>
       <td>
+        <a name="" id="" class="btn btn-secondary btn-sm" href="{{ route('admin.informasi.detail',['id' => $info->id]) }}" role="button">
+            <i class="fas fa-ellipsis-v"></i>
+        </a> 
         <a name="" id="" class="btn btn-primary btn-sm" href="{{ route('admin.informasi.edit',['id' => $info->id]) }}" role="button">
             <i class="fas fa-pen"></i>
         </a> 

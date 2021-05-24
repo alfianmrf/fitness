@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Member')
+@section('title', 'Jadwal')
 
 @section('content_header')
     <h1>Jadwal</h1>
@@ -22,7 +22,11 @@
     <tr>
       <th scope="row">{{ $key+1 }}</th>
       <td>{{ $schedule->day }}</td>
-      <td>{{ $schedule->time }}</td>
+      @if($schedule->close == 1)
+      <td>Libur</td>
+      @else
+      <td>{{ $schedule->time }} - {{ $schedule->end }}</td>
+      @endif
       <td>
         <a name="" id="" class="btn btn-primary btn-sm" href="{{ route('admin.jadwal.edit',['id' => $schedule->id]) }}" role="button">
             <i class="fas fa-pen"></i>

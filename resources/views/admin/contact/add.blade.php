@@ -1,31 +1,30 @@
 @extends('adminlte::page')
 
-@section('title', 'Edit Kontak')
+@section('title', 'Tambah Kontak')
 
 @section('content_header')
-    <h1>Edit Kontak</h1>
+    <h1>Tambah Kontak</h1>
 @stop
 
 @section('content')
-<form action="{{route('admin.contact.update',['id'=>$contact->id])}}" method="post" enctype="multipart/form-data">
+<form action="{{route('admin.contact.new')}}" method="post" enctype="multipart/form-data">
   @csrf
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Media Sosial</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" placeholder="Media Sosial" name="name" value="{{ $contact->name }}">
+      <input type="text" class="form-control" placeholder="Media Sosial" name="name">
     </div>
   </div>
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Kontak</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" placeholder="Kontak" name="content" value="{{ $contact->content }}">
+      <input type="text" class="form-control" placeholder="Kontak" name="content">
     </div>
   </div>
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Logo</label>
     <div class="col-sm-10">
       <input type="file" accept="image/*" class="form-control-file" name="logo">
-      <img width="50px" src="{{ asset('assets/contact') }}/{{ $contact->logo }}">
     </div>
   </div>
   <button type="submit" class="btn btn-primary">Simpan</button>

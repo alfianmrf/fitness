@@ -8,8 +8,8 @@
                     <h3>{{ $information->name }}</h3>
                 </div>
                 <div class="card-body">
-                    <img src="{{ asset('assets/information') }}/{{ $information->photo }}" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
-                    <p class="mt-3 text-justify">{{ $information->description }}</p>
+                    <img src="{{ asset('assets/information') }}/{{ $information->photo }}" class="border col-md-3 p-3 col-12 mr-3 mb-3 float-left img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+                    <p class="text-justify">{{ $information->description }}</p>
                 </div>
             </div>
         </div>

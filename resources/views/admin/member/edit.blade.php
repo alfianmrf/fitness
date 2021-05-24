@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Member')
+@section('title', 'Edit Member')
 
 @section('content_header')
     <h1>Edit Member</h1>
@@ -16,9 +16,9 @@
     </div>
   </div>
   <div class="form-group row">
-    <label class="col-sm-2 col-form-label">ID Member</label>
+    <label class="col-sm-2 col-form-label">Username</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" placeholder="ID Member" name="id_member" value="{{ $member->id_member }}">
+      <input type="text" class="form-control" placeholder="Username" name="id_member" value="{{ $member->id_member }}">
     </div>
   </div>
   <div class="form-group row">

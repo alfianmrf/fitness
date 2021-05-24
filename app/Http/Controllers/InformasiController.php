@@ -77,4 +77,10 @@ class InformasiController extends Controller
         $information->delete();
         return redirect()->back();
     }
+
+    public function detail($id)
+    {
+        $information = DB::table('information')->where('id', $id)->first();
+        return view('admin.informasi.item', compact(['information']));
+    }
 }

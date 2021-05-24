@@ -38,9 +38,11 @@ Route::middleware(['admin'])->group(function () {
         });
         Route::group(["prefix" => "/contact"], function () {
             Route::get('/', [ContactController::class, 'index'])->name('admin.contact');
-            Route::get('/detail', [ContactController::class, 'detail'])->name('admin.contact.detail');
-            Route::get('/edit', [ContactController::class, 'edit'])->name('admin.contact.edit');
-            Route::post('/update', [ContactController::class, 'update'])->name('admin.contact.update');
+            Route::get('/{id}/edit', [ContactController::class, 'edit'])->name('admin.contact.edit');
+            Route::post('/update/{id}', [ContactController::class, 'update'])->name('admin.contact.update');
+            Route::get('/add', [ContactController::class, 'add'])->name('admin.contact.add');
+            Route::post('/new', [ContactController::class, 'new'])->name('admin.contact.new');
+            Route::get('/{id}/delete', [ContactController::class, 'delete'])->name('admin.contact.delete');
         });
         Route::group(["prefix" => "/jadwal"], function () {
             Route::get('/', [JadwalController::class, 'index'])->name('admin.jadwal');
@@ -52,6 +54,7 @@ Route::middleware(['admin'])->group(function () {
         });
         Route::group(["prefix" => "/informasi"], function () {
             Route::get('/', [InformasiController::class, 'index'])->name('admin.informasi');
+            Route::get('/{id}/detail', [InformasiController::class, 'detail'])->name('admin.informasi.detail');
             Route::get('/add', [InformasiController::class, 'add'])->name('admin.informasi.add');
             Route::post('/update/{id}', [InformasiController::class, 'update'])->name('admin.informasi.update');
             Route::post('/new', [InformasiController::class, 'new'])->name('admin.informasi.new');

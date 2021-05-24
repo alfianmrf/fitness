@@ -29,7 +29,7 @@ class AuthController extends Controller
         ];
   
         $messages = [
-            'id_member.required'    => 'ID member wajib diisi',
+            'id_member.required'    => 'Username wajib diisi',
             'password.required'     => 'Password wajib diisi',
             'password.string'       => 'Password harus berupa string'
         ];
@@ -55,7 +55,7 @@ class AuthController extends Controller
         } else { // false
   
             //Login Fail
-            Session::flash('error', 'ID member atau password salah');
+            Session::flash('error', 'Username atau password salah');
             return redirect()->route('login');
         }
   
@@ -79,8 +79,8 @@ class AuthController extends Controller
             'name.required'         => 'Nama Lengkap wajib diisi',
             'name.min'              => 'Nama lengkap minimal 3 karakter',
             'name.max'              => 'Nama lengkap maksimal 35 karakter',
-            'id_member.required'    => 'ID member wajib diisi',
-            'id_member.unique'      => 'ID member sudah terdaftar',
+            'id_member.required'    => 'Username wajib diisi',
+            'id_member.unique'      => 'Username sudah terdaftar',
             'address.required'      => 'Alamat wajib diisi',
             'password.required'     => 'Password wajib diisi',
             'password.confirmed'    => 'Password tidak sama dengan konfirmasi password'

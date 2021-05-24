@@ -7,9 +7,13 @@ use Illuminate\Support\Facades\DB;
 
 class TransaksiController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $transaction = DB::table('transaction')->get();
+        $transaction = DB::table('transaction')->when($request->keyword, function ($query) use ($request) {
+            $query
+            ->where('id_member', 'like', "%{$request->keyword}%")
+            ->orWhere('name_member', 'like', "%{$request->keyword}%");
+        })->get();
         return view('admin.transaksi.detail', compact(['transaction']));
     }
 

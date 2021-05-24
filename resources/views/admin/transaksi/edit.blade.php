@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Member')
+@section('title', 'Edit Transaksi')
 
 @section('content_header')
     <h1>Edit Transaksi</h1>
@@ -10,9 +10,9 @@
 <form action="{{route('admin.transaksi.update',['id'=>$transaction->id])}}" method="post">
   @csrf
   <div class="form-group row">
-    <label class="col-sm-2 col-form-label">ID Member</label>
+    <label class="col-sm-2 col-form-label">Username</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" placeholder="ID Member" name="id_member" value="{{ $transaction->id_member }}" readonly>
+      <input type="text" class="form-control" placeholder="Username" name="id_member" value="{{ $transaction->id_member }}" readonly>
     </div>
   </div>
   <div class="form-group row">

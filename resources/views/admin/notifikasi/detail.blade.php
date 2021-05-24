@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Member')
+@section('title', 'Notifikasi')
 
 @section('content_header')
     <h1>Notifikasi</h1>
@@ -14,7 +14,7 @@
             <thead>
                 <tr>
                 <th scope="col">No.</th>
-                <th scope="col">ID Member</th>
+                <th scope="col">Username</th>
                 <th scope="col">Nama Member</th>
                 <th scope="col">Total Pembayaran</th>
                 <th scope="col">Jenis Pembayaran</th>

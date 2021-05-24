@@ -21,7 +21,7 @@
                     </div>
                     <div class="row">
                         <div class="col-4">
-                            <p>ID member</p>
+                            <p>Username</p>
                         </div>
                         <div class="col-8">: {{ Auth::user()->id_member }}</div>
                     </div>
@@ -81,8 +81,8 @@
                             <input type="text" name="name" class="form-control" placeholder="Nama Lengkap" value="{{ Auth::user()->name }}" required>
                         </div>
                         <div class="form-group">
-                            <label for=""><strong>ID Member</strong></label>
-                            <input type="text" name="id_member" class="form-control" placeholder="ID Member" value="{{ Auth::user()->id_member }}" readonly required>
+                            <label for=""><strong>Username</strong></label>
+                            <input type="text" name="id_member" class="form-control" placeholder="Username" value="{{ Auth::user()->id_member }}" readonly required>
                         </div>
                         <div class="form-group">
                             <label for=""><strong>Tanggal Pendaftaran</strong></label>

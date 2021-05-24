@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Member')
+@section('title', 'Detail Member')
 
 @section('content_header')
     <h1>Detail Member</h1>
@@ -14,7 +14,7 @@
       <td>{{ $member->name }}</td>
     </tr>
     <tr>
-      <th scope="row">ID Member</th>
+      <th scope="row">Username</th>
       <td>{{ $member->id_member }}</td>
     </tr>
     <tr>

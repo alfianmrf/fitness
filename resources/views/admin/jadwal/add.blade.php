@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Member')
+@section('title', 'Tambah Jadwal')
 
 @section('content_header')
     <h1>Tambah Jadwal</h1>
@@ -25,8 +25,31 @@
   </div>
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Jam</label>
+    <div class="col-sm-3">
+      <input type="time" class="form-control" name="time" value="">
+    </div>
+    <div class="col-sm-1 col-form-label">
+      <center>s/d</center>
+    </div>
+    <div class="col-sm-3">
+      <input type="time" class="form-control" name="end" value="">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Libur</label>
     <div class="col-sm-10">
-      <input type="time" class="form-control" placeholder="Jam" name="time" value="">
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="close" id="close1" value="1">
+        <label class="form-check-label" for="close1">
+          Ya
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="close" id="close2" value="0">
+        <label class="form-check-label" for="close2">
+          Tidak
+        </label>
+      </div>
     </div>
   </div>
   <button type="submit" class="btn btn-primary">Simpan</button>
