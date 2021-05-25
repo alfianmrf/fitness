@@ -45,7 +45,7 @@
                         </div>
                         <div class="col-3">
                             @if(Auth::user()->photo==null)
-                            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png">
+                            <div class="h-100" style="background: url('https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'); background-repeat:no-repeat; background-position: center; background-size: cover;"></div>
                             @else
                             <div class="h-100" style="background: url('{{ asset('assets/profile') }}/{{ Auth::user()->photo }}'); background-repeat:no-repeat; background-position: center; background-size: cover;"></div>
                             @endif

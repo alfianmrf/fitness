@@ -22,7 +22,11 @@
                             <tr>
                             <th scope="row">{{ $key+1 }}</th>
                             <td>{{ $schedule->day }}</td>
-                            <td>{{ $schedule->time }}</td>
+                            @if($schedule->close == 1)
+                            <td>Libur</td>
+                            @else
+                            <td>{{ $schedule->time }} - {{ $schedule->end }}</td>
+                            @endif
                             @endforeach
                         </tbody>
                     </table>
