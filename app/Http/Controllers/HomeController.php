@@ -36,8 +36,7 @@ class HomeController extends Controller
 
     public function member()
     {
-        $information = DB::table('information')->where('id', $id)->first();
-        return view('informasi', compact(['information']));
+        return view('member');
     }
 
     public function notifikasi()

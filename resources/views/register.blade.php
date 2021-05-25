@@ -38,12 +38,13 @@
             </div>
             <div class="form-group">
                 <label for=""><strong>Password</strong></label>
-                <input type="password" name="password" class="form-control" placeholder="Password">
+                <input type="password" name="password" class="form-control form-password" placeholder="Password">
             </div>
             <div class="form-group">
                 <label for=""><strong>Konfirmasi Password</strong></label>
-                <input type="password" name="password_confirmation" class="form-control" placeholder="Password">
+                <input type="password" name="password_confirmation" class="form-control form-password" placeholder="Password">
             </div>
+            <input type="checkbox" class="form-checkbox mb-3"> Show password
             <button type="submit" class="btn btn-primary btn-block">Register</button>
         </form>
     </div>
@@ -55,5 +56,13 @@
 @stop
 
 @section('js')
-    <script></script>
+    <script>
+        $('.form-checkbox').click(function(){
+            if($(this).is(':checked')){
+                $('.form-password').attr('type','text');
+            }else{
+                $('.form-password').attr('type','password');
+            }
+        });
+    </script>
 @stop
